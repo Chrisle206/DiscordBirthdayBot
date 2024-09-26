@@ -24,10 +24,12 @@ def main():
     # Parse input text and extract names and dates
     extracted_data = parse_input(input_text)
     
+    extracted_data.sort(key=lambda x: tuple(map(int, x[1].split('/'))))
+    
     # Print extracted data
     print("Extracted data:")
     for name, date in extracted_data:
-        print(f"(\"{name}\", \"{date}\")")
+        print(f"(\"{name}\", \"{date}\"),")
 
 if __name__ == "__main__":
     main()
